@@ -5,10 +5,20 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
 // Middleware
+const allowedOrigins = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : [];
+// Fallback for local dev if env not set (or add strictly what is needed)
+if (allowedOrigins.length === 0) allowedOrigins.push('http://localhost:5173');
+
 app.use(cors({
-  origin: ['https://land-6922.onrender.com', 'http://localhost:5173'],
+  origin: (origin, callback) => {
+    // Allow no origin (e.g. mobile apps, curl) or if in allowed list
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(bodyParser.json());
