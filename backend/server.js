@@ -7,8 +7,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 // Middleware
 const allowedOrigins = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : [];
-// Fallback for local dev if env not set (or add strictly what is needed)
-if (allowedOrigins.length === 0) allowedOrigins.push('http://localhost:5173');
+// Fallback/Hardcoded list (Localhost + Your Specific Render Frontend)
+const fallbackOrigins = ['http://localhost:5173', 'https://land-6922.onrender.com'];
+fallbackOrigins.forEach(origin => {
+  if (!allowedOrigins.includes(origin)) allowedOrigins.push(origin);
+});
 
 app.use(cors({
   origin: (origin, callback) => {
