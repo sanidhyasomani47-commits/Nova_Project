@@ -2,8 +2,20 @@
 
 **Nova** is a modern, full-stack web application designed as a premium portfolio and content management platform. It features a high-performance public landing page to showcase projects and clients, and a secure admin dashboard for managing content.
 
-![Nova Project](https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80) 
-*(Note: Replace with actual screenshot of your app)*
+## 📸 Screenshots
+
+![Home Page](screenshots/nova1.png)
+_Home Page_
+
+![Projects Section](screenshots/nova2.png)
+_Projects Section_
+
+![Admin Dashboard](screenshots/nova3.png)
+_Admin Dashboard_
+
+![Contact Section](screenshots/nova4.png)
+_Contact Section_
+
 
 ## 🚀 Features
 
